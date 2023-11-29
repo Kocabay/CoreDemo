@@ -11,7 +11,7 @@ namespace DataAccessLayer.EntityFramework
 {
     public class EfCommentRepository : GenericRepository<Comment>, ICommentDal
     {
-    {
+    
 
     }
 }
