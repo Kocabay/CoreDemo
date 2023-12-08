@@ -1,3 +1,6 @@
+using Microsoft.AspNetCore.Authorization;
+using Microsoft.AspNetCore.Mvc.Authorization;
+
 namespace CoreDemo
 {
     public class Program
@@ -31,6 +34,17 @@ namespace CoreDemo
                 pattern: "{controller=Home}/{action=Index}/{id?}");
 
             app.Run();
+        }
+        public void ConfigureServices(IServiceCollection services)
+        {
+            services.AddControllersWithViews();
+            services.AddMvc(config =>
+            {
+                var policy = new AuthorizationPolicyBuilder()
+                .RequireAuthenticatedUser()
+                .Build();
+                config.Filters.Add(new AuthorizeFilter(policy));
+            });
         }
     }
 }
