@@ -12,7 +12,7 @@
 {
     @Html.Label("Blog Başlığı")
     @Html.TextBoxFor(x => x.BlogTitle, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x=>x.BlogTitle)
+    @Html.ValidationMessageFor(x => x.BlogTitle)
     <br />
     @Html.Label("Blog Görseli")
     @Html.TextBoxFor(x => x.BlogImage, new { @class = "form-control" })
@@ -23,8 +23,7 @@
     @Html.ValidationMessageFor(x => x.BlogThumbnailImage)
     <br />
     @Html.Label("Kategori")
-    @Html.TextBoxFor(x => x.CategoryID, new { @class = "form-control" })
-    @Html.ValidationMessageFor(x => x.CategoryID)
+    @Html.DropDownListFor(x => x.CategoryID, (List<SelectListItem>)ViewBag.cv,new {@class="form-control"})
     <br />
     @Html.Label("Blog İçerigi")
     @Html.TextAreaFor(x => x.BlogContent, 10, 10, new { @class = "form-control" })

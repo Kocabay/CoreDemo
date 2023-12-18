@@ -45,7 +45,7 @@ namespace DataAccessLayer.Repositories
             return c.Set<T>().Where(filter).ToList();
         }
 
-        public void Updater(T t)
+        public void Update(T t)
         {
             using var c = new Context();
             c.Update(t);
