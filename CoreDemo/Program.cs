@@ -5,6 +5,8 @@ using Microsoft.AspNetCore.Hosting;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.AspNetCore.Mvc.Authorization;
+using EntityLayer.Concrete;
+using DataAccessLayer.Concrete;
 
 namespace CoreDemo
 {
@@ -54,6 +56,12 @@ namespace CoreDemo
 
         public static void ConfigureServices(IServiceCollection services)
         {
+            services.AddDbContext<Context>();
+            services.AddIdentity<AppUser, AppRole>(x =>
+            {
+                x.Password.RequireUppercase = false;
+                x.Password.RequireNonAlphanumeric = false;
+            }).AddEntityFrameworkStores<Context>();
             services.AddControllersWithViews();
 
             services.AddSession();
