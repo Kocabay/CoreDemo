@@ -1,0 +1,5 @@
+﻿yorumlar
+rolleme
+json web token (jwt)
+entity framework responsibitiy minimize
+deploy

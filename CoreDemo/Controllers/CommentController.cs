@@ -1,10 +1,12 @@
 ﻿using BusinessLayer.Concrete;
 using DataAccessLayer.EntityFramework;
 using EntityLayer.Concrete;
+using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
 
 namespace CoreDemo.Controllers
 {
+    [AllowAnonymous]
     public class CommentController : Controller
     {
         CommentManager cm = new CommentManager(new EfCommentRepository());
@@ -15,7 +17,7 @@ namespace CoreDemo.Controllers
         [HttpGet]
         public PartialViewResult PartialAddComment()
         {
-            return PartialView();
+            return PartialView(); 
         }
         [HttpPost]
         public PartialViewResult PartialAddComment(Comment p)
